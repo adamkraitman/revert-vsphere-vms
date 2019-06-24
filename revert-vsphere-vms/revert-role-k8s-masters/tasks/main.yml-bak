@@ -1,0 +1,42 @@
+---
+
+    - pause:
+        seconds: 20
+
+    - name: Create a VM from a template
+      vmware_guest:
+        hostname: "{{ vcenter }}" 
+        username: "{{ vcuser }}" 
+        password: "{{ vcpass }}"
+        validate_certs: no
+        datacenter: "HSG-DC"
+        cluster: "HSG_Cluster"
+        folder: "Personal/Adam"
+        name: "{{ item }}" 
+        state: poweredon
+        template: "TPL_RHEL_7.4_x64-FOR-K8S"
+        hardware:
+          memory_mb: 12000 
+          num_cpus: 4
+          num_cpu_cores_per_socket: 2
+          scsi: paravirtual
+          hotadd_cpu: True
+          hotremove_cpu: True
+          hotadd_memory: False
+        cdrom:
+          type: none 
+        networks:
+        - name: "Virtual Machine Network" 
+        - name: "10G ISCSI"
+      delegate_to: localhost
+      register: deploy
+      with_items:
+         - cluster-master
+         - cluster-worker-node1
+         - cluster-worker-node2
+         - cluster-worker-node3
+
+    - pause:
+        seconds: 90
+
+
