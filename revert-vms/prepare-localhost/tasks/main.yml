@@ -1,9 +1,0 @@
----
-    - name: 
-      pip:
-        name: "{{ item }}"
-      with_items:
-         - pyVmomi
-         - pysphere
-         - dig
-         - dnspython
