@@ -1,6 +1,6 @@
 revert-vsphere-vms
 
-Ansible playbook to automate the proccess of vm's groups revert snapshot 
+Ansible playbook to automate the proccess of virtual machines revert snapshot 
 
 Edit /vars/main.yml in each role to add the follwoing details
 For example
