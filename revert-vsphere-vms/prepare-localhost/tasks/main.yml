@@ -5,5 +5,3 @@
       with_items:
          - pyVmomi
          - pysphere
-         - dig
-         - dnspython
