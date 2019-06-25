@@ -1,6 +1,6 @@
 ---
-    - name: include vars file 
-      include_vars: "{{ ansible_env_yaml }}"
+    #- name: include vars file 
+    #  include_vars: "{{ ansible_env_yaml }}"
 
     - name: Gather facts from a vm located in vcenter 
       vmware_guest_facts:
